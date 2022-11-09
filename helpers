@@ -1,0 +1,20 @@
+function get_Three_table($firstTable,$secondTable,$threeTable,$as,$lien1,$lien2,$lien3,$lien4,$array)
+{
+    $result = DB::table($firstTable)
+        ->join($secondTable,$lien1,"=",$lien2)
+        ->join($threeTable,$lien3,"=",$lien4)
+        ->select($as)
+        ->where($array)
+        ->get();
+    return $result;
+}
+
+function get_Double_table($firstTable,$secondTable,$as,$lien1,$lien2,$array)
+{
+    $result = DB::table($firstTable)
+        ->join($secondTable,$lien1,"=",$lien2)
+        ->select($as)
+        ->where($array)
+        ->get();
+    return $result;
+}
